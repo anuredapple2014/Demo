@@ -1,0 +1,23 @@
+import types from "../types"
+
+let init_state = {
+    num: 5
+}
+
+
+
+export default function  (state = init_state, action) {
+    switch (action.type) {
+        case types.INCREMENT: {
+           let data = action.payload
+           console.log("Incremnet reducer call",data)
+            return { ...state, num: data + 5 }
+        }
+        case types.DECREMENT: {
+            let data = action.payload
+            return { ...state, num: data - 5 }
+        }
+        default:
+            return {...state}
+    }
+}
